@@ -3,8 +3,8 @@
 Este repositorio contiene una implementación en Python del protocolo BB84 para la distribución de claves cuánticas (QKD). El simulador permite visualizar cómo Alice y Bob pueden establecer una clave secreta compartida utilizando propiedades cuánticas.
 
 ## Contenido del Repositorio
-Simulacion.py: Implementación del protocolo BB84 básico
-README.md: Este archivo con la documentación
+- `Simulacion.py`: Implementación del protocolo BB84 básico
+- `README.md`: Este archivo con la documentación
 
 ## Descripción del Protocolo BB84
 El protocolo BB84 es uno de los métodos más conocidos de QKD. Fue propuesto por Charles Bennett y Gilles Brassard en 1984. El protocolo utiliza las propiedades cuánticas de los fotones para establecer una clave secreta entre dos partes, con la garantía de que cualquier intento de interceptación podrá ser detectado.
@@ -61,40 +61,18 @@ El simulador está organizado en varias funciones principales:
 `main()`: Maneja la interacción con el usuario y la ejecución de la simulación.
 
 ## Ejemplo de Simulación
-A continuación se muestra un ejemplo de salida del simulador para una transmisión de 15 bits:
+A continuación se muestra un ejemplo de salida del simulador para una transmisión de 10 bits:
 
-+------+----------------+-----------------+-----------------+---------------+----------------+---------------------+--------------+
-|   N° |   Bit de Alice | Base de Alice   |   Fotón enviado | Base de Bob   |   Bit recibido | ¿Bases coinciden?   | ¿Usar bit?   |
-+======+================+=================+=================+===============+================+=====================+==============+
-|    1 |              1 | ↕               |               1 | ↕             |              1 | sí                  | sí           |
-+------+----------------+-----------------+-----------------+---------------+----------------+---------------------+--------------+
-|    2 |              1 | ↗               |               0 | ↗             |              1 | sí                  | sí           |
-+------+----------------+-----------------+-----------------+---------------+----------------+---------------------+--------------+
-|    3 |              1 | ↕               |               1 | ↕             |              1 | sí                  | sí           |
-+------+----------------+-----------------+-----------------+---------------+----------------+---------------------+--------------+
-|    4 |              0 | ↕               |               0 | ↗             |              0 | no                  | no           |
-+------+----------------+-----------------+-----------------+---------------+----------------+---------------------+--------------+
-|    5 |              1 | ↕               |               1 | ↗             |              0 | no                  | no           |
-+------+----------------+-----------------+-----------------+---------------+----------------+---------------------+--------------+
-|    6 |              1 | ↗               |               0 | ↕             |              1 | no                  | no           |
-+------+----------------+-----------------+-----------------+---------------+----------------+---------------------+--------------+
-|    7 |              0 | ↕               |               0 | ↕             |              0 | sí                  | sí           |
-+------+----------------+-----------------+-----------------+---------------+----------------+---------------------+--------------+
-|    8 |              0 | ↗               |               1 | ↗             |              0 | sí                  | sí           |
-+------+----------------+-----------------+-----------------+---------------+----------------+---------------------+--------------+
-|    9 |              1 | ↕               |               1 | ↕             |              1 | sí                  | sí           |
-+------+----------------+-----------------+-----------------+---------------+----------------+---------------------+--------------+
-|   10 |              1 | ↗               |               0 | ↕             |              1 | no                  | no           |
-+------+----------------+-----------------+-----------------+---------------+----------------+---------------------+--------------+
+![TablaSimulacion](TablaSimulacion.png)
 
 Total de bits transmitidos: 10
-Bits útiles para la clave: 6
+Bits útiles para la clave: 6 
 Porcentaje útil: 60.00%
 
-Clave secreta: 1 1 1 0 0 1
+Clave secreta: 1 0 1 0 0 0
 
 Además, el programa mostrará un gráfico con las bases utilizadas por Alice y Bob, donde:
-Azul representa la base recta (↕)
-Rojo representa la base diagonal (↗)
+Rojo representa la base recta (↕)
+Azul representa la base diagonal (↗)
 
 ![EjemploSimulacion](EjemploSimulacion.png)
