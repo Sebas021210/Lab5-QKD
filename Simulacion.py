@@ -93,6 +93,31 @@ def display_simulation(results):
     print(f"Porcentaje útil: {len(results['secret_key'])/len(results['alice_bits'])*100:.2f}%")    
     print(f"\nClave secreta: {' '.join(map(str, results['secret_key']))}")
 
+def visualize_bases(results):
+    n_bits = len(results["alice_bits"])    
+    alice_bases_visual = ["Recta (↕)" if b == 0 else "Diagonal (↗)" for b in results["alice_bases"]]
+    bob_bases_visual = ["Recta (↕)" if b == 0 else "Diagonal (↗)" for b in results["bob_bases"]]
+    
+    plt.figure(figsize=(12, 6))
+    plt.subplot(2, 1, 1)
+    plt.bar(range(1, n_bits + 1), [0.5] * n_bits, color=['blue' if b == 0 else 'red' for b in results["alice_bases"]])
+    plt.yticks([])
+    plt.title("Bases utilizadas por Alice")
+    plt.xlabel("Número de bit")
+    plt.xticks(range(1, n_bits + 1))
+    plt.legend(["Recta (↕)", "Diagonal (↗)"], loc='upper right')
+    
+    plt.subplot(2, 1, 2)
+    plt.bar(range(1, n_bits + 1), [0.5] * n_bits, color=['blue' if b == 0 else 'red' for b in results["bob_bases"]])
+    plt.yticks([])
+    plt.title("Bases utilizadas por Bob")
+    plt.xlabel("Número de bit")
+    plt.xticks(range(1, n_bits + 1))
+    plt.legend(["Recta (↕)", "Diagonal (↗)"], loc='upper right')
+    
+    plt.tight_layout()
+    plt.show()
+
 def main():
     print("Simulación del Protocolo BB84")
     
@@ -101,6 +126,11 @@ def main():
             n_bits = int(input("\nIngrese el número de bits a transmitir: "))
             results = simulate_bb84(n_bits)
             display_simulation(results)
+
+            try:
+                visualize_bases(results)
+            except Exception as e:
+                print(f"No se pudo mostrar la visualización: {e}")
             
             repet = input("\n¿Desea realizar otra simulación? (s/n): ").lower()
             if repet != 's':
