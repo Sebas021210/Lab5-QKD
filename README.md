@@ -65,14 +65,13 @@ A continuación se muestra un ejemplo de salida del simulador para una transmisi
 
 ![TablaSimulacion](TablaSimulacion.png)
 
-Total de bits transmitidos: 10
-Bits útiles para la clave: 6 
-Porcentaje útil: 60.00%
-
-Clave secreta: 1 0 1 0 0 0
+- Total de bits transmitidos: 10
+- Bits útiles para la clave: 6 
+- Porcentaje útil: 60.00%
+- Clave secreta: 1 0 1 0 0 0
 
 Además, el programa mostrará un gráfico con las bases utilizadas por Alice y Bob, donde:
-Rojo representa la base recta (↕)
-Azul representa la base diagonal (↗)
+- Rojo representa la base recta (↕)
+- Azul representa la base diagonal (↗)
 
 ![EjemploSimulacion](EjemploSimulacion.png)
